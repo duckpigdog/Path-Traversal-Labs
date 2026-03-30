@@ -1,0 +1,1 @@
+FLAG{cookies_can_be_dangerous_too}

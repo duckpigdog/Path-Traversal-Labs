@@ -1,0 +1,1 @@
+FLAG{welcome_to_path_traversal_world}

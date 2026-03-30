@@ -1,0 +1,1 @@
+Flag{Level12_Null_Byte_Bypass_Extension_Check}

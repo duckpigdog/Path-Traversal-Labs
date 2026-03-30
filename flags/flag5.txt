@@ -1,0 +1,1 @@
+FLAG{long_paths_can_truncate_extensions}

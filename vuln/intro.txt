@@ -1,0 +1,7 @@
+Welcome to the File Viewer System.
+This system allows you to view internal documents.
+
+Try to find the system configuration file: win.ini
+It is usually located at C:\Windows\win.ini
+
+Remember the directory structure!

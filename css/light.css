@@ -1,0 +1,335 @@
+/* Clean Light Theme for Lab Interface */
+:root {
+    --bg-color: #f8f9fa;
+    --sidebar-bg: #ffffff;
+    --text-color: #333333;
+    --border-color: #e9ecef;
+    --accent-color: #007bff; /* Calm Blue */
+    --accent-hover: #0056b3;
+    --code-bg: #f1f3f5;
+    --success-color: #28a745;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    --card-hover-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Common Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.dashboard-subtitle {
+    color: #6c757d;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Clean Cards */
+.card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+    border-color: var(--accent-color);
+}
+
+.card-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    background: #fff;
+}
+
+.card-body {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: #2c3e50;
+}
+
+.difficulty-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.diff-easy { background: #d4edda; color: #155724; }
+.diff-medium { background: #fff3cd; color: #856404; }
+.diff-hard { background: #f8d7da; color: #721c24; }
+
+.card-text {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.code-snippet {
+    background: var(--code-bg);
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.9em;
+    color: #d63384;
+}
+
+.card-footer {
+    margin-top: auto;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+/* Lab View Specifics (Legacy + Refined) */
+.lab-container {
+    display: flex;
+    height: 100vh;
+    border: none;
+    margin: 0;
+    background: var(--bg-color);
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 320px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.02);
+    z-index: 10;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.game-window {
+    flex: 1;
+    position: relative;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    margin-top: 0;
+}
+
+.sidebar p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.mission-box {
+    background: #e7f5ff;
+    border-left: 4px solid var(--accent-color);
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.mission-title {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.url-bar {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.url-label {
+    color: #adb5bd;
+    font-weight: 600;
+    margin-right: 12px;
+    font-size: 0.8rem;
+    user-select: none;
+}
+
+.url-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: #fff;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    color: #6c757d;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: var(--accent-color);
+}
+
+.hint-toggle {
+    margin-top: auto;
+    color: #6c757d;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+}
+
+.hint-box {
+    margin-top: 10px;
+    background: #f8f9fa;
+    border: 1px dashed #ced4da;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #495057;
+    display: none;
+}
+
+/* Vuln Internal Pages */
+.vuln-body {
+    background: #fff;
+    color: #333;
+    padding: 30px;
+    font-family: sans-serif;
+}
+.vuln-header {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.vuln-title {
+    font-size: 1.5rem;
+    color: #222;
+    margin: 0;
+}
+.vuln-content {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 4px;
+    min-height: 200px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    color: #333;
+}
+.error-msg { color: #dc3545; }
+.success-msg { color: #28a745; }
