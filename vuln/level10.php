@@ -1,47 +1,38 @@
 <?php
-// Level 10: The Absolute Truth
 error_reporting(0);
 $file = isset($_GET['file']) ? $_GET['file'] : __DIR__ . '/intro.txt';
 
-// Filter: Enforce Absolute Paths ONLY
-// We block any path that doesn't look like an absolute path.
-// Linux/Unix: Starts with /
-// Windows: Starts with Drive Letter (e.g., C:\)
 if (!preg_match('/^(\/|[a-zA-Z]:\\\\)/', $file)) {
-    die("<span class='error-msg'>Security Alert: Only absolute paths are allowed! (e.g., /etc/passwd or C:\Windows\win.ini)</span>");
+    die("<span class='error-msg'>安全警告：只允许使用绝对路径！(例如 /etc/passwd 或 C:\Windows\win.ini)</span>");
 }
 
-// Hint: Leaking the current directory
 $current_dir = __DIR__;
-
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
+    <meta charset="UTF-8">
+    <title>第十关：绝对的真理</title>
     <link rel="stylesheet" href="../css/light.css">
     <style>
         body { background: #fff; padding: 20px; }
+        .back-btn { margin-bottom: 20px; display: inline-block; text-decoration: none; color: #2563eb; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
     </style>
 </head>
 <body class="vuln-body">
+    <a href="../index.php" class="back-btn">&larr; 返回首页</a>
     <div class="vuln-header">
-        <h3 class="vuln-title">Absolute File Manager v10.0</h3>
-        <p style="color: #666; margin-top: 5px;">Security: Relative paths are blocked. You must know exactly what you want.</p>
-        <p style="font-size: 0.8em; color: #999;">System Root: <?php echo htmlspecialchars($current_dir); ?></p>
+        <h3 class="vuln-title">第十关：绝对的真理</h3>
+        <p style="color: #666; margin-top: 5px;">安全系统：已封锁相对路径，您必须使用完整的绝对路径。</p>
+        <p style="font-size: 0.8em; color: #999;">当前目录：<?php echo htmlspecialchars($current_dir); ?></p>
     </div>
     <div class="vuln-content">
 <?php
-    // Vulnerability: include() accepts absolute paths (e.g. C:\Windows\win.ini or /etc/passwd)
-    // The filter only allows paths that start with / or [A-Z]:\
-    // You must provide the full path to the file.
-    
-    // Hint: The flag is located at the project root + flags/flag10.txt
-    // We already know the current directory: <?php echo __DIR__; ?>
-    
     if (file_exists($file)) {
         include($file);
     } else {
-        echo "<span class='error-msg'>Error: File not found.</span>";
+        echo "<span class='error-msg'>错误：文件不存在。</span>";
     }
 ?>
     </div>

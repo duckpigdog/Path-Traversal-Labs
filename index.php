@@ -2,37 +2,33 @@
 // Main Dashboard - Clean Light Theme
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Path Traversal Labs</title>
+    <title>路径遍历漏洞靶场</title>
     <link rel="stylesheet" href="css/light.css">
 </head>
 <body>
     <div class="container">
         <header class="dashboard-header">
-            <h1 class="dashboard-title">Path Traversal Labs</h1>
-            <p class="dashboard-subtitle">Master file inclusion vulnerabilities in a secure, controlled environment.</p>
+            <h1 class="dashboard-title">路径遍历漏洞靶场</h1>
+            <p class="dashboard-subtitle">在受控环境中学习并掌握文件包含与路径遍历漏洞。</p>
         </header>
 
         <div class="grid">
             <!-- Level 1 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-easy">Easy</span>
-                    <h2 class="card-title">Level 1: The Naked Parameter</h2>
+                    <span class="difficulty-badge diff-easy">简单</span>
+                    <h2 class="card-title">第一关：裸奔的参数</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        The application accepts raw user input without any validation. This is the most basic form of Local File Inclusion (LFI).
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Traverse directories to find system files.<br>
-                        <strong>Target:</strong> <span class="code-snippet">C:\Windows\win.ini</span>
+                        没有任何过滤，直接接收用户输入并包含文件。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=1" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level1.php?file=intro.txt" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
@@ -40,19 +36,15 @@
             <!-- Level 2 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-easy">Easy</span>
-                    <h2 class="card-title">Level 2: The Naive Filter</h2>
+                    <span class="difficulty-badge diff-easy">简单</span>
+                    <h2 class="card-title">第二关：天真的替换</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        The developer attempts to block traversal by removing <span class="code-snippet">../</span> sequences. However, <span class="code-snippet">str_replace</span> is not recursive.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Bypass the single-pass filter using double writing.<br>
-                        <strong>Target:</strong> <span class="code-snippet">flag2.txt</span>
+                        尝试使用单次替换来过滤目录穿越字符。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=2" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level2.php?file=intro.txt" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
@@ -60,19 +52,15 @@
             <!-- Level 3 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-medium">Medium</span>
-                    <h2 class="card-title">Level 3: The Encoding Disguise</h2>
+                    <span class="difficulty-badge diff-medium">中等</span>
+                    <h2 class="card-title">第三关：编码的伪装</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        A strict WAF blocks all requests containing <span class="code-snippet">.</span> or <span class="code-snippet">/</span>. But does it understand encoded data?
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Use Double URL Encoding to bypass the WAF.<br>
-                        <strong>Target:</strong> <span class="code-snippet">flag3.txt</span>
+                        拦截了明文的目录穿越字符，尝试使用编码绕过。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=3" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level3.php?file=intro.txt" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
@@ -80,19 +68,15 @@
             <!-- Level 4 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-medium">Medium</span>
-                    <h2 class="card-title">Level 4: The Art of Truncation</h2>
+                    <span class="difficulty-badge diff-medium">中等</span>
+                    <h2 class="card-title">第四关：截断的艺术</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        The system enforces a <span class="code-snippet">.html</span> extension. You need to read a <span class="code-snippet">.txt</span> file.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Use Null Byte Injection to truncate the path.<br>
-                        <strong>Target:</strong> <span class="code-snippet">flag4.txt</span>
+                        强制拼接了 .html 后缀，利用 %00 截断绕过。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=4" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level4.php?file=intro" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
@@ -100,19 +84,15 @@
             <!-- Level 5 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-hard">Hard</span>
-                    <h2 class="card-title">Level 5: The Path Limit</h2>
+                    <span class="difficulty-badge diff-hard">困难</span>
+                    <h2 class="card-title">第五关：路径的极限</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        Forced extension is back, but Null Bytes are filtered. We need to use the operating system's limitations against it.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Overflow the MAX_PATH limit.<br>
-                        <strong>Target:</strong> <span class="code-snippet">flag5.txt</span>
+                        强制拼接后缀且过滤了空字节，利用系统最大路径长度限制绕过。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=5" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level5.php?file=intro" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
@@ -120,19 +100,15 @@
             <!-- Level 6 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-hard">Hard</span>
-                    <h2 class="card-title">Level 6: Zip Slip</h2>
+                    <span class="difficulty-badge diff-hard">困难</span>
+                    <h2 class="card-title">第六关：压缩包的陷阱</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        A file upload feature that extracts ZIP archives. If the extraction logic is flawed, it can write files anywhere.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Upload a malicious ZIP to write a WebShell.<br>
-                        <strong>Target:</strong> Write to <span class="code-snippet">vuln/shell.php</span>
+                        Zip Slip 漏洞，上传恶意的 ZIP 压缩包实现目录穿越写文件。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=6" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level6.php" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
@@ -140,19 +116,15 @@
             <!-- Level 7 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-hard">Expert</span>
-                    <h2 class="card-title">Level 7: LFI to RCE</h2>
+                    <span class="difficulty-badge diff-expert">专家</span>
+                    <h2 class="card-title">第七关：日志投毒</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        Standard LFI, but no interesting files to read. You must find a way to execute code on the server.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Log Poisoning or php://filter chains.<br>
-                        <strong>Target:</strong> RCE to read <span class="code-snippet">flag7.txt</span>
+                        结合文件包含与服务器访问日志，实现远程代码执行 (RCE)。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=7" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level7.php?file=intro.txt" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
@@ -160,19 +132,15 @@
             <!-- Level 8 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-medium">Medium</span>
-                    <h2 class="card-title">Level 8: The Hidden Cookie</h2>
+                    <span class="difficulty-badge diff-medium">中等</span>
+                    <h2 class="card-title">第八关：隐藏的参数</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        The page seems static and has no URL parameters. But is it really? Check your browser's storage.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Manipulate the Cookie value.<br>
-                        <strong>Target:</strong> <span class="code-snippet">flag8.txt</span>
+                        参数不在 URL 中，检查你的 Cookie。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=8" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level8.php" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
@@ -180,19 +148,15 @@
             <!-- Level 9 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-medium">Medium</span>
-                    <h2 class="card-title">Level 9: The Case of Windows</h2>
+                    <span class="difficulty-badge diff-medium">中等</span>
+                    <h2 class="card-title">第九关：大小写的秘密</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        The application blacklists specific keywords like "flags". But the underlying OS might be more forgiving.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Bypass keyword filter using case sensitivity.<br>
-                        <strong>Target:</strong> <span class="code-snippet">flag9.txt</span>
+                        过滤了特定关键字，利用 Windows 文件系统不区分大小写的特性绕过。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=9" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level9.php?file=intro.txt" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
@@ -200,60 +164,51 @@
             <!-- Level 10 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-hard">Hard</span>
-                    <h2 class="card-title">Level 10: The Absolute Truth</h2>
+                    <span class="difficulty-badge diff-hard">困难</span>
+                    <h2 class="card-title">第十关：绝对的真理</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        The application rejects all relative paths. You must use an <strong>Absolute Path</strong>.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Read a system file using its full path.<br>
-                        <strong>Target:</strong> <span class="code-snippet">/etc/passwd</span> or <span class="code-snippet">C:\Windows\win.ini</span>
+                        封锁了所有相对路径，必须使用绝对路径。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=10" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level10.php" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
+
             <!-- Level 11 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-hard">Hard</span>
-                    <h2 class="card-title">Level 11: The Required Prefix</h2>
+                    <span class="difficulty-badge diff-hard">困难</span>
+                    <h2 class="card-title">第十一关：前缀的限制</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        The application requires all file paths to start with a specific trusted directory.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Bypass the prefix check.<br>
-                        <strong>Payload Form:</strong> <span class="code-snippet">/var/www/images/../../../etc/passwd</span>
+                        强制校验了目录前缀，尝试绕过前缀限制读取文件。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=11" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level11.php" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
+
             <!-- Level 12 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="difficulty-badge diff-hard">Hard</span>
-                    <h2 class="card-title">Level 12: The PNG Validator</h2>
+                    <span class="difficulty-badge diff-hard">困难</span>
+                    <h2 class="card-title">第十二关：后缀的欺骗</h2>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        The application strictly validates the file extension. It must end with <code>.png</code>.
-                    </p>
-                    <p class="card-text">
-                        <strong>Goal:</strong> Bypass the extension check.<br>
-                        <strong>Payload Form:</strong> <span class="code-snippet">../../../etc/passwd%00.png</span>
+                        严格校验了文件扩展名，利用截断特性绕过后缀检查。
                     </p>
                     <div class="card-footer">
-                        <a href="view.php?id=12" class="btn-primary">Start Lab</a>
+                        <a href="vuln/level12.php" class="btn-primary">进入关卡</a>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </body>

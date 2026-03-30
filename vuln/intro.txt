@@ -1,7 +1,7 @@
-Welcome to the File Viewer System.
-This system allows you to view internal documents.
+欢迎使用文件查看系统。
+本系统允许您查看内部文档。
 
-Try to find the system configuration file: win.ini
-It is usually located at C:\Windows\win.ini
+请尝试找到系统配置文件：win.ini
+它通常位于 C:\Windows\win.ini
 
-Remember the directory structure!
+或者尝试读取各个关卡对应的 flag 文件。
