@@ -103,3 +103,4 @@
   ```text
   ?file=../../flags/flag12.txt%00.png
   ```
+123456
